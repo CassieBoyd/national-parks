@@ -1,18 +1,31 @@
-// Assiging a string to variable "allParks".
-const allParks = park => `
+// Assiging a string to variable "buildParksHtml".
+const buildParksHtml = park => `
 <article>
     <h3>${park.name}</h3>
-    <p>State the park in located in</p>
+    <p>${park.state}</p>
 </article>`
-//  console.log(allParks)
+//  console.log(buildParksHtml)
 
-// Function definition.
-const buildParkList = () => {
+// Function definition that takes allParks (response.parks) as an argument. 
+const displayParkHtml = (allParks) => {
 
-// Searching the DOM for tag with id "parking-lot" and assigning it to variable "sectionSelection"
+    // Declare parkResultsHtml as an empty string.
+    let parkResultsHtml = ""
+  
+    // .forEach loop loops through allParks (response.parks) array.
+    allParks.forEach(park => {
+  
+      // Variable parkHtml is assigned to the value returned from calling the function buildParkHtml.
+      let parkHtml = buildParksHtml(park)
+  
+      // parkHtml is added to the existing value of parkResultsHtml.
+      parkResultsHtml += parkHtml
+    });
+  
+    // Searching the DOM for tag with id "parking-lot" and assigning it to variable "sectionSelection"
 const sectionSelection = document.querySelector("#parking-lot")
 
 // The innerHTML (area between opening and closing tags) is populated with the value of variable "park".
-sectionSelection.innerHTML += allParks
+sectionSelection.innerHTML = parkResultsHtml
+  }
 
-}
