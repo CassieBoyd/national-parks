@@ -1,3 +1,15 @@
 body {
     background: grey;
 }
+
+/* Colors visited park border dashed red by finding its id */
+#visited {
+    border: red;
+    border-style: dashed;
+}
+
+/* Colors park border solid green if it hasn't been visited by finding its id */
+#not_visited {
+    border: green;
+    border-style: solid;
+}
